@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving Eligibility Checker - For Mr. Shakil Mahmud</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #343a40;
+            text-shadow: 2px 2px 4px #aaa;
+        }
+        #container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background: #f8f9fa;
+            color: #212529;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Driving Eligibility Checker</h1>
+        <p>Created for Mr. Shakil Mahmud</p>
+        <button id="start">Start</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        document.getElementById("start").addEventListener("click", function () {
+            let outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = ""; // Clear previous output
+
+            let age = prompt("Hey Mr. Shakil Mahmud, what's your age?");
+            age = parseInt(age);
+
+            if (isNaN(age)) {
+                outputDiv.innerHTML = "<p>Please enter a valid number, Mr. Shakil Mahmud.</p>";
+            } else if (age < 0) {
+                outputDiv.innerHTML = "<p>Invalid age, Mr. Shakil Mahmud.</p>";
+            } else if (age >= 9 && age < 18) {
+                outputDiv.innerHTML = "<p>Mr. Shakil Mahmud, you can think about driving.</p>";
+            } else if (age === 18) {
+                outputDiv.innerHTML = "<p>Mr. Shakil Mahmud, you can drive, but...</p>";
+                let asking = prompt("Do you have a driving license, Mr. Shakil Mahmud? (yes/no)");
+                asking = asking ? asking.toLowerCase() : ""; // Handle null input
+                if (asking === "no") {
+                    outputDiv.innerHTML += "<p>Mr. Shakil Mahmud, please visit your nearest BRTA office for a driving license.</p>";
+                } else if (asking === "yes") {
+                    outputDiv.innerHTML += "<p>You can drive, Mr. Shakil Mahmud!</p>";
+                } else {
+                    outputDiv.innerHTML += "<p>Invalid response. Please answer with 'yes' or 'no', Mr. Shakil Mahmud.</p>";
+                }
+            } else if (age > 18) {
+                outputDiv.innerHTML = "<p>You can drive, Mr. Shakil Mahmud!</p>";
+            } else {
+                outputDiv.innerHTML = "<p>Sorry, Mr. Shakil Mahmud, you can't drive yet.</p>";
+            }
+        });
+    </script>
+</body>
+</html>
