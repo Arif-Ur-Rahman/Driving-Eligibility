@@ -1,11 +1,16 @@
-// Adding event listeners for the cards
+// script.js
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("driving-eligibility").addEventListener("click", () => {
         checkDrivingEligibility();
     });
 
     document.getElementById("car-collections").addEventListener("click", () => {
-        alert("Car Collections feature is under construction.");
+        // Dynamically load and execute the car collections module
+        import('./car-collections.js')
+            .then((module) => {
+                module.showCarCollections();
+            })
+            .catch((error) => console.error("Failed to load car collections:", error));
     });
 
     document.getElementById("bike-collections").addEventListener("click", () => {
@@ -17,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Driving eligibility logic
 function checkDrivingEligibility() {
     let age = prompt("Hey Mr. Shakil Mahmud, what's your age?");
     age = parseInt(age);
