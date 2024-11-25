@@ -3,7 +3,7 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    background: linear-gradient(135deg, #ece9e6, #ffffff);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,30 +15,30 @@ body {
 #dashboard {
     text-align: center;
     width: 90%;
-    max-width: 900px;
+    max-width: 800px;
     background: #fff;
-    padding: 20px;
+    padding: 30px 20px;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    animation: fadeIn 1s ease-out;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 /* Dashboard title */
 h1 {
+    grid-column: span 2;
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #ff6f61;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #444;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Card styles */
 .card {
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    margin: 15px 0;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: #fff;
@@ -47,45 +47,55 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    letter-spacing: 1px;
+    height: 120px;
     text-transform: uppercase;
     text-align: center;
+    letter-spacing: 1px;
 }
 
-/* Card hover effect */
+/* Individual card colors */
+#driving-eligibility {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5); /* Aqua gradient */
+}
+
+#car-collections {
+    background: linear-gradient(135deg, #ff512f, #dd2476); /* Red gradient */
+}
+
+#bike-collections {
+    background: linear-gradient(135deg, #8e2de2, #4a00e0); /* Purple gradient */
+}
+
+#about {
+    background: linear-gradient(135deg, #56ab2f, #a8e063); /* Green gradient */
+}
+
+/* Hover effect */
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Card titles */
+/* Card text */
 .card h2 {
     margin: 0;
-    font-size: 1.4rem;
-    line-height: 1.5;
+    font-size: 1.5rem;
+    line-height: 1.4;
     color: #fff;
-}
-
-/* Animation for fade-in */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
+    #dashboard {
+        grid-template-columns: 1fr;
+    }
+
     h1 {
         font-size: 2rem;
     }
+
     .card {
         font-size: 1rem;
-        height: 80px;
+        height: 100px;
     }
 }
